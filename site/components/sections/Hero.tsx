@@ -30,7 +30,9 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-cream/80 text-sm tracking-widest max-w-xl font-light leading-loose">
-          Branding and experience design for brands people choose with care — and commit to for the long term.
+          Strategic branding and experience design. The science and art of building relationships with
+          enthusiast customers — people making high-consideration, high-emotion commitments to brands
+          they care about.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4">

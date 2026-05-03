@@ -1,75 +1,155 @@
 import Link from "next/link";
 
-const services = [
+const outcomes = [
   {
-    title: "Customer Empathy",
+    quadrant: "Successful",
+    condition: "They chose you for the right reasons.",
+    symptom: "You're the category leader — but challenger brands are becoming an increasing threat.",
+    offering: "Experience Design & Service Innovation",
     description:
-      "Enthusiast customers are searching for brands they can believe in. We go inside the moment of decision — showrooms, stores, trial points — to understand what actually drives choice. Not assumptions. Evidence.",
-    items: ["Ethnographic Research", "Segmentation", "Personas", "Journey Mapping"],
+      "Maintain your competitive edge, deepen loyalty, and increase customer lifetime value.",
   },
   {
-    title: "Brand Strategy",
+    quadrant: "Failed",
+    condition: "They chose your competition for the wrong reasons.",
+    symptom:
+      "You aren't getting the consideration you deserve, while dominant brands get unwarranted market share.",
+    offering: "Branding & Communications",
     description:
-      "Your brand must reveal and articulate the spine of your enthusiast story. We help you identify what your brand stands for in the minds of the customers who matter — and what's standing between them and a confident choice.",
-    items: ["Brand Positioning", "Messaging", "Visual Expression", "Identity Design"],
+      "Differentiate your brand, communicate your offerings compellingly, and streamline the path to consideration.",
   },
   {
-    title: "Offer Development",
+    quadrant: "Risky",
+    condition: "They chose you for the wrong reasons.",
+    symptom:
+      "Customers are abandoning your brand with negative emotions, reviews, and word of mouth.",
+    offering: "Customer Expectation & Experience Alignment",
     description:
-      "Enthusiast customers have deeper emotional needs and more complicated rational needs that you need to meet. We help you design offerings that align what you do with what your customers are actually choosing to commit to.",
-    items: ["Value Proposition", "Product Development", "Service Design", "Go-to-Market Strategy"],
+      "Fix misconceptions, improve retention, and prevent the reputation damage that follows a broken promise.",
   },
   {
-    title: "Experience Design",
+    quadrant: "Fair",
+    condition: "They chose your competition for the right reasons.",
+    symptom:
+      "You find yourself wanting to copy your competition, because they offer something different.",
+    offering: "Brand Positioning & Target Audience Calibration",
     description:
-      "Enthusiast customers are looking for an experience that makes a strong first impression and rewards lifelong loyalty. We design the touchpoints where belief is formed — and where commitment becomes habit.",
-    items: ["Website Design", "App Design", "Marketing Communications", "Customer Experiences"],
+      "Stop chasing the wrong customers. Focus your efforts on the buyers you can actually win — and keep.",
+  },
+];
+
+const phases = [
+  {
+    number: "01",
+    name: "Alignment",
+    subtitle: "What you know and what's missing",
+    description:
+      "We consolidate the inside-looking-out perspective. Internal stakeholders are heard. We identify what agreements and disagreements exist, and what unknowns need to be addressed before research begins.",
+    output: "You know what questions customer research needs to answer.",
+  },
+  {
+    number: "02",
+    name: "Insight",
+    subtitle: "What we learned and what it means",
+    description:
+      "We gather the outside-looking-in perspective. We observe and listen to customers at the moment of decision — finding the answers we need, and the unexpected insights we didn't know to look for.",
+    output: "You can make better decisions informed by the actual voice of the customer.",
+  },
+  {
+    number: "03",
+    name: "Roadmap",
+    subtitle: "What to do and how to do it",
+    description:
+      "We align the two perspectives to triangulate the truth of the situation. We develop strategies to address it and articulate those strategies as a roadmap of actionable steps.",
+    output: "You have a concrete action plan to address your real challenge.",
+  },
+  {
+    number: "04",
+    name: "Execution",
+    subtitle: "From plan to reality",
+    description:
+      "We build out the system for differentiation — implementing changes across a customized ecosystem of communications and experiences. We are channel- and technology-agnostic.",
+    output: "You have new programs to grow and optimize.",
   },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section className="py-16 md:py-24 bg-olive/10" id="what-we-do" aria-labelledby="services-heading">
+    <section className="py-16 md:py-24" id="what-we-do" aria-labelledby="services-heading">
       <div className="section-inner">
         <p className="section-label mb-6">What We Do</p>
-        <h2 id="services-heading" className="text-olive text-2xl font-light mb-12">
-          Services
+        <h2 id="services-heading" className="text-cream text-3xl md:text-4xl font-light leading-snug mb-6 max-w-2xl">
+          Difficult buying decisions can end four different ways.
         </h2>
+        <p className="text-muted text-base font-light leading-loose mb-16 max-w-2xl">
+          We've helped in all of them. Which situation your brand is in determines which kind of
+          work will actually move the needle.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((svc) => (
-            <article key={svc.title} className="border-t border-olive/30 pt-6">
-              <h3 className="text-cream text-xs uppercase tracking-widest font-normal mb-4">
-                {svc.title}
-              </h3>
-              <p className="text-muted text-sm font-light leading-loose mb-4">
-                {svc.description}
+        {/* 2×2 Outcome Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-olive/10 border border-olive/10 mb-24">
+          {outcomes.map((o) => (
+            <article
+              key={o.quadrant}
+              className="bg-black p-8 border border-olive/10"
+            >
+              <p className="text-rust text-xs uppercase tracking-widest font-normal mb-3">
+                {o.quadrant}
               </p>
-              <ul className="flex flex-wrap gap-x-4 gap-y-1">
-                {svc.items.map((item) => (
-                  <li key={item} className="text-xs text-olive/70 font-light">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-muted text-xs font-light italic mb-5 leading-relaxed">
+                {o.condition}
+              </p>
+              <p className="text-cream/50 text-xs font-light leading-loose mb-5">
+                {o.symptom}
+              </p>
+              <h3 className="text-olive text-sm font-normal mb-2">
+                {o.offering}
+              </h3>
+              <p className="text-muted text-xs font-light leading-relaxed">
+                {o.description}
+              </p>
             </article>
           ))}
         </div>
 
-        {/* Our Method subsection */}
+        {/* 4-Phase Process */}
+        <div className="border-t border-olive/20 pt-16">
+          <h2 className="text-cream text-2xl font-light mb-4">Our Approach</h2>
+          <p className="text-muted text-base font-light leading-loose mb-12 max-w-2xl">
+            Each phase yields standalone value. You can engage at any stage — and build from there.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {phases.map((phase) => (
+              <article key={phase.number} className="border-t-2 border-olive pt-6">
+                <p className="text-olive/40 text-xs font-light mb-1 tracking-widest">
+                  Phase {phase.number}
+                </p>
+                <h3 className="text-cream text-lg font-light mb-1">{phase.name}</h3>
+                <p className="text-muted text-xs italic font-light mb-4">{phase.subtitle}</p>
+                <p className="text-muted text-xs font-light leading-loose mb-4">
+                  {phase.description}
+                </p>
+                <p className="text-olive/70 text-xs font-light leading-relaxed border-l border-olive/30 pl-3">
+                  {phase.output}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Method callout */}
         <div className="mt-16 pt-12 border-t border-olive/20 max-w-2xl">
           <h3 className="text-cream text-xs uppercase tracking-widest font-normal mb-6">
-            Our Method
+            The Core Question
           </h3>
-          <p className="text-muted text-base font-light leading-loose mb-4">
-            Most growth problems are diagnosed at the wrong altitude. Companies assume they need
-            more visibility — more advertising, more features — when the real barrier is closer
-            to the moment of decision.
+          <p className="text-cream text-xl font-light leading-relaxed mb-4">
+            &ldquo;If we only knew __________, we would be able to __________.&rdquo;
           </p>
-          <p className="text-muted text-base font-light leading-loose mb-6">
-            We go inside the purchase experience: talk to buyers mid-consideration, observe what
-            happens at retail, understand what creates or destroys confidence at the critical moment.
-            Then we fix the right thing.
+          <p className="text-muted text-sm font-light leading-loose mb-6">
+            Every engagement begins by filling in that sentence honestly. Gathering the outside-looking-in
+            perspective — what your customers actually experience at the moment of decision — is where
+            the real work starts.
           </p>
           <div className="flex gap-6 flex-wrap">
             <Link
