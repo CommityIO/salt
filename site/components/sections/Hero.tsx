@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -7,23 +8,24 @@ export default function Hero() {
       aria-label="Hero"
       style={{ minHeight: "calc(100vh - 80px)" }}
     >
-      {/* Background image — add your hero image to /public/images/hero.jpg */}
-      <div
-        className="absolute inset-0 bg-charcoal/40"
+      {/* Background image */}
+      <Image
+        src="/images/hero.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover"
         aria-hidden="true"
-        style={{
-          backgroundImage: "url(/images/hero.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
       />
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" aria-hidden="true" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 section-inner flex flex-col justify-center py-32 min-h-[inherit]"
-        style={{ minHeight: "calc(100vh - 80px)" }}>
+      <div
+        className="relative z-10 section-inner flex flex-col justify-center py-32"
+        style={{ minHeight: "calc(100vh - 80px)" }}
+      >
         <h1 className="text-rust text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-tight tracking-tight max-w-3xl">
           Where Enthusiast Brands
           <strong className="text-cream block font-bold">Find Their Following</strong>

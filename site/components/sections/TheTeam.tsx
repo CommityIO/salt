@@ -7,7 +7,7 @@ const team = [
   {
     name: "Paul Caldera",
     title: "Brand Integration · Cofounder",
-    image: "/images/team/paul-caldera.jpg",
+    image: "/images/team/paul-caldera.png",
     bio: "For the past two decades, Paul has helped leading companies in a wide range of enthusiast industries develop strategic design and integrated brand communication programs. In all cases, his work has had a positive and measurable impact on his clients' business performance.",
     enthusiast: "Tennis, running, Red Sox enthusiast",
     email: "paul@saltworksinc.com",
@@ -15,7 +15,7 @@ const team = [
   {
     name: "Doreen Caldera",
     title: "Brand Design · Cofounder",
-    image: "/images/team/doreen-caldera.jpg",
+    image: "/images/team/doreen-caldera.png",
     bio: "As creative director and enthusiast-branding expert, Doreen works in close collaboration with brand partners to develop targeted branding and identity solutions that motivate enthusiasts to take action. Her work has been consistently recognized in national and international design publications including Graphis, Communication Arts, Print and HOW.",
     enthusiast: "Dark chocolate, urban dwelling + dog enthusiast",
     email: "doreen@saltworksinc.com",
@@ -23,7 +23,7 @@ const team = [
   {
     name: "Christine Bailey",
     title: "Brand Build",
-    image: "/images/team/christine-bailey.jpg",
+    image: "/images/team/christine-bailey.png",
     bio: "Christine brings a unique blend of design, production and client service skills and expertise to her role at Saltworks. Her brand-building portfolio spans a broad range of enthusiast organizations that include the Phoenix Coyotes Hockey Club, Backroads Active Travel, Boyd Gaming and Ballet Arizona.",
     enthusiast: "Running, yoga, Charity Miles enthusiast",
     email: "christine@saltworksinc.com",
@@ -31,7 +31,7 @@ const team = [
   {
     name: "Carlos Alcala",
     title: "Brand Interactive",
-    image: "/images/team/carlos-alcala.jpg",
+    image: "/images/team/carlos-alcala.png",
     bio: "Carlos has more than 25 years of experience developing integrated branding, interactive, and social programs for enthusiast audiences. He works closely with project teams throughout the different phases of each engagement to ensure that design, content and technical development align with both client and user goals.",
     enthusiast: "Wine, music, travel enthusiast",
     email: "carlos@saltworksinc.com",
