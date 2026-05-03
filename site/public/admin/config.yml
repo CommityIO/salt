@@ -1,0 +1,39 @@
+# Decap CMS configuration for Saltworks
+# Production: uses GitHub backend (requires OAuth app on Vercel)
+# Development: run `npx decap-server` and use local_backend: true
+
+backend:
+  name: github
+  repo: GITHUB_USERNAME/saltworks-site   # <-- update after GitHub push
+  branch: main
+
+# Uncomment during local development:
+# local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "work"
+    label: "Case Studies"
+    label_singular: "Case Study"
+    folder: "content/work"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "client"
+    fields:
+      - { label: "Client Name", name: "client", widget: "string" }
+      - { label: "Case Study Title", name: "title", widget: "string" }
+      - { label: "Category / Industry", name: "category", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. parker-guitars (no spaces, lowercase)" }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Featured Order (1 = first)", name: "featuredOrder", widget: "number", default: 99 }
+      - { label: "One-Line Summary", name: "summary", widget: "string", hint: "Appears on the work index and homepage card" }
+      - { label: "Result Highlight", name: "result", widget: "string", hint: "e.g. 500% increase in revenue", required: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Thumbnail Image", name: "thumbnailImage", widget: "image", required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "string", hint: "For search engines. 150–160 characters.", required: false }
+      - label: "Case Study Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Use headings: Before, Inside Looking Out, Outside Looking In, After, So What?"
