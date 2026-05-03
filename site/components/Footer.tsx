@@ -1,11 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-charcoal mt-20">
       <div className="section-inner py-12 flex flex-col md:flex-row justify-between items-start gap-8">
         <div>
-          <p className="text-cream font-light tracking-[0.2em] text-sm uppercase mb-1">Saltworks</p>
+          <Image
+            src="/images/saltworks-logo.png"
+            alt="Saltworks"
+            width={180}
+            height={25}
+            className="h-6 w-auto mb-3 opacity-70"
+          />
           <p className="text-muted text-xs font-light leading-relaxed">
             Enthusiast Branding &amp; Experience Design
           </p>

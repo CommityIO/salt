@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -18,10 +19,14 @@ export default function Nav() {
     <header className="w-full px-8 py-4 flex items-center justify-between relative z-50">
       <div className="max-w-[1076px] w-full mx-auto flex items-center justify-between">
         <Link href="/" className="block" aria-label="Saltworks — Home">
-          {/* SVG logo placeholder — replace with actual SVG or next/image */}
-          <span className="text-cream font-light tracking-[0.2em] text-sm uppercase">
-            Saltworks
-          </span>
+          <Image
+            src="/images/saltworks-logo.png"
+            alt="Saltworks"
+            width={240}
+            height={33}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
