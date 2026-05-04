@@ -56,23 +56,24 @@ export default function Clients() {
     <section className="py-16 md:py-20 bg-charcoal" id="clients" aria-labelledby="clients-heading">
       <div className="section-inner">
         <p className="section-label mb-2">Clients</p>
-        <p className="text-muted text-xs font-light mb-10">
+        <p className="text-muted text-sm font-light mb-12">
           Enthusiast brands come in all industries and sizes.
         </p>
         <h2 id="clients-heading" className="sr-only">Our Clients</h2>
 
         <ul
-          className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-x-6 gap-y-8"
+          className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-6 gap-x-8 gap-y-10"
           role="list"
         >
           {clients.map(({ name, logo }) => (
-            <li key={name} className="flex items-center justify-center min-h-[40px]">
+            <li key={name} className="flex items-center justify-center min-h-[96px] group">
               <Image
                 src={logo}
                 alt={name}
-                width={100}
-                height={40}
-                className="object-contain opacity-50 hover:opacity-80 transition-opacity duration-200 max-h-[36px] w-auto"
+                width={150}
+                height={150}
+                className="client-logo object-contain w-auto transition-opacity duration-200"
+                style={{ maxHeight: "150px" }}
               />
             </li>
           ))}

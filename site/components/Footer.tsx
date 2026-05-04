@@ -4,21 +4,22 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-charcoal mt-20">
-      <div className="section-inner py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+      <div className="section-inner py-14 flex flex-col md:flex-row justify-between items-start gap-10">
         <div>
           <Image
             src="/images/saltworks-logo.png"
             alt="Saltworks"
-            width={180}
-            height={25}
-            className="h-6 w-auto mb-3 opacity-70"
+            width={240}
+            height={33}
+            className="w-auto mb-4"
+            style={{ height: "36px", mixBlendMode: "screen", opacity: 0.75 }}
           />
-          <p className="text-muted text-xs font-light leading-relaxed">
+          <p className="text-muted text-sm font-light leading-relaxed">
             Enthusiast Branding &amp; Experience Design
           </p>
         </div>
 
-        <address className="not-italic text-xs text-muted font-light leading-loose">
+        <address className="not-italic text-sm text-muted font-light leading-loose">
           Seaport Lofts<br />
           437 D Street, Unit 7D<br />
           Boston, MA 02210<br />
@@ -27,7 +28,7 @@ export default function Footer() {
           </a>
         </address>
 
-        <nav aria-label="Footer" className="flex flex-col gap-2">
+        <nav aria-label="Footer" className="flex flex-col gap-3">
           {[
             { href: "/about", label: "About" },
             { href: "/work", label: "Work" },
@@ -36,7 +37,7 @@ export default function Footer() {
             <Link
               key={href}
               href={href}
-              className="text-xs uppercase tracking-widest text-muted hover:text-cream font-normal transition-colors"
+              className="text-sm uppercase tracking-widest text-muted hover:text-cream font-normal transition-colors"
             >
               {label}
             </Link>
@@ -45,8 +46,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-black/30">
-        <div className="section-inner py-4">
-          <p className="text-xs text-muted/60 font-light">
+        <div className="section-inner py-5">
+          <p className="text-sm text-muted/60 font-light">
             &copy; {new Date().getFullYear()} Saltworks, Inc. All rights reserved.
           </p>
         </div>

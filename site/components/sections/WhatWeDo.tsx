@@ -96,16 +96,16 @@ export default function WhatWeDo() {
               <p className="text-rust text-xs uppercase tracking-widest font-normal mb-3">
                 {o.quadrant}
               </p>
-              <p className="text-muted text-xs font-light italic mb-5 leading-relaxed">
+              <p className="text-muted text-sm font-light italic mb-5 leading-relaxed">
                 {o.condition}
               </p>
-              <p className="text-cream/50 text-xs font-light leading-loose mb-5">
+              <p className="text-cream/50 text-sm font-light leading-loose mb-5">
                 {o.symptom}
               </p>
-              <h3 className="text-olive text-sm font-normal mb-2">
+              <h3 className="text-olive text-base font-normal mb-2">
                 {o.offering}
               </h3>
-              <p className="text-muted text-xs font-light leading-relaxed">
+              <p className="text-muted text-sm font-light leading-relaxed">
                 {o.description}
               </p>
             </article>
@@ -125,12 +125,12 @@ export default function WhatWeDo() {
                 <p className="text-olive/40 text-xs font-light mb-1 tracking-widest">
                   Phase {phase.number}
                 </p>
-                <h3 className="text-cream text-lg font-light mb-1">{phase.name}</h3>
-                <p className="text-muted text-xs italic font-light mb-4">{phase.subtitle}</p>
-                <p className="text-muted text-xs font-light leading-loose mb-4">
+                <h3 className="text-cream text-xl font-light mb-1">{phase.name}</h3>
+                <p className="text-muted text-sm italic font-light mb-4">{phase.subtitle}</p>
+                <p className="text-muted text-sm font-light leading-loose mb-4">
                   {phase.description}
                 </p>
-                <p className="text-olive/70 text-xs font-light leading-relaxed border-l border-olive/30 pl-3">
+                <p className="text-olive/70 text-sm font-light leading-relaxed border-l border-olive/30 pl-3">
                   {phase.output}
                 </p>
               </article>

@@ -10,11 +10,17 @@
 }
 
 /* Base */
+html {
+  font-size: 17px;
+}
+
 body {
   background-color: #000;
   color: #e4e2db;
   -webkit-font-smoothing: antialiased;
   font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 a {
@@ -32,6 +38,18 @@ a:hover {
   max-width: 1076px;
   margin-inline: auto;
   padding-inline: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-inner {
+    padding-inline: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-inner {
+    padding-inline: 5rem;
+  }
 }
 
 /* Case study prose */
@@ -79,6 +97,16 @@ a:hover {
 .prose-saltworks strong {
   color: #e4e2db;
   font-weight: 400;
+}
+
+/* Client logos: white-on-black PNGs — screen blend makes black transparent */
+.client-logo {
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.group:hover .client-logo {
+  opacity: 0.9;
 }
 
 /* Typography utilities */

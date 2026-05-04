@@ -38,7 +38,7 @@ export default function ContactSection() {
               If you&rsquo;re building a brand for customers who choose with care, we&rsquo;d like to hear about it.
             </p>
 
-            <address className="not-italic text-muted text-xs font-light leading-loose">
+            <address className="not-italic text-muted text-sm font-light leading-loose">
               Seaport Lofts<br />
               437 D Street, Unit 7D<br />
               Boston, MA 02210<br />
@@ -105,14 +105,14 @@ export default function ContactSection() {
                 </div>
 
                 {error && (
-                  <p className="text-rust text-xs font-light">
+                  <p className="text-rust text-sm font-light">
                     Something went wrong. Please try again or email us directly.
                   </p>
                 )}
 
                 <button
                   type="submit"
-                  className="self-start border border-olive text-olive hover:bg-olive hover:text-black transition-colors px-8 py-3 text-xs uppercase tracking-widest font-normal"
+                  className="self-start border border-olive text-olive hover:bg-olive hover:text-black transition-colors px-8 py-3 text-sm uppercase tracking-widest font-normal"
                 >
                   Send Message
                 </button>

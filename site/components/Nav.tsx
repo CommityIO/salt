@@ -22,9 +22,10 @@ export default function Nav() {
           <Image
             src="/images/saltworks-logo.png"
             alt="Saltworks"
-            width={240}
-            height={33}
-            className="h-8 w-auto"
+            width={500}
+            height={500}
+            className="w-auto"
+            // style={{ height: "clamp(28px, 3vw, 42px)", mixBlendMode: "screen" }}
             priority
           />
         </Link>
@@ -35,7 +36,7 @@ export default function Nav() {
             <Link
               key={href}
               href={href}
-              className={`text-xs uppercase tracking-widest font-normal transition-colors ${
+              className={`text-sm uppercase tracking-widest font-normal transition-colors ${
                 pathname === href || pathname.startsWith(href + "/")
                   ? "text-olive"
                   : "text-cream hover:text-olive"
@@ -78,7 +79,7 @@ export default function Nav() {
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className={`text-sm uppercase tracking-widest font-normal ${
+              className={`text-base uppercase tracking-widest font-normal ${
                 pathname === href ? "text-olive" : "text-cream"
               }`}
             >

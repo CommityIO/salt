@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 
 const team = [
@@ -55,7 +55,23 @@ const team = [
 ];
 
 export default function TheTeam() {
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(null);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleEnter = useCallback((name: string) => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    setActive(name);
+  }, []);
+
+  const handleLeave = useCallback(() => {
+    leaveTimer.current = setTimeout(() => setActive(null), 150);
+  }, []);
+
+  const handlePanelEnter = useCallback(() => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+  }, []);
+
+  const activeMember = team.find((m) => m.name === active) ?? null;
 
   return (
     <section className="py-16 md:py-24" id="team" aria-labelledby="team-heading">
@@ -67,49 +83,83 @@ export default function TheTeam() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {team.map((member) => (
-            <div key={member.name}>
-              <button
-                onClick={() =>
-                  setExpanded(expanded === member.name ? null : member.name)
+            <div
+              key={member.name}
+              onMouseEnter={() => handleEnter(member.name)}
+              onMouseLeave={handleLeave}
+              className="cursor-pointer group"
+              role="button"
+              tabIndex={0}
+              aria-expanded={active === member.name}
+              onFocus={() => handleEnter(member.name)}
+              onBlur={handleLeave}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActive(active === member.name ? null : member.name);
                 }
-                className="w-full text-left group"
-                aria-expanded={expanded === member.name}
+              }}
+            >
+              {/* Photo */}
+              <div
+                className="relative w-full aspect-square mb-3 overflow-hidden"
+                style={{ backgroundColor: "#1a1a1a" }}
               >
-                {/* Photo */}
-                <div className="relative w-full aspect-square bg-charcoal mb-3 overflow-hidden">
-                  {member.image ? (
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-charcoal" />
-                  )}
-                </div>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-all duration-300"
+                  style={{
+                    filter: active === member.name ? "grayscale(0%)" : "grayscale(100%)",
+                    opacity: active === member.name ? 1 : 0.75,
+                  }}
+                />
+              </div>
 
-                <p className="text-cream text-xs font-normal group-hover:text-olive transition-colors">
-                  {member.name}
-                </p>
-                <p className="text-muted text-xs font-light mt-0.5">{member.title}</p>
-              </button>
-
-              {/* Bio — expands on click/tap */}
-              {expanded === member.name && (
-                <div className="mt-4 col-span-full">
-                  <p className="text-muted text-sm font-light leading-loose">{member.bio}</p>
-                  <p className="text-olive/60 text-xs font-light mt-2 italic">{member.enthusiast}</p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="text-xs text-olive hover:text-rust transition-colors mt-2 block font-normal"
-                  >
-                    {member.email}
-                  </a>
-                </div>
-              )}
+              <p
+                className="text-sm font-normal transition-colors"
+                style={{ color: active === member.name ? "#919655" : "#e4e2db" }}
+              >
+                {member.name}
+              </p>
+              <p className="text-muted text-xs font-light mt-0.5">{member.title}</p>
             </div>
           ))}
+        </div>
+
+        {/* Full-width bio panel */}
+        <div
+          onMouseEnter={handlePanelEnter}
+          onMouseLeave={handleLeave}
+          className="overflow-hidden transition-all duration-300"
+          style={{
+            maxHeight: activeMember ? "300px" : "0px",
+            opacity: activeMember ? 1 : 0,
+            marginTop: activeMember ? "2rem" : "0",
+          }}
+          aria-live="polite"
+        >
+          {activeMember && (
+            <div className="border-t border-olive/20 pt-8 pb-4">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+                <div className="flex-1">
+                  <p className="text-cream text-sm font-normal mb-1">{activeMember.name}</p>
+                  <p className="text-muted text-xs font-light mb-4">{activeMember.title}</p>
+                  <p className="text-muted text-base font-light leading-loose">{activeMember.bio}</p>
+                </div>
+                <div className="md:w-64 shrink-0">
+                  <p className="text-olive/70 text-sm font-light italic mb-3">{activeMember.enthusiast}</p>
+                  <a
+                    href={`mailto:${activeMember.email}`}
+                    className="text-sm text-olive hover:text-rust transition-colors font-normal"
+                  >
+                    {activeMember.email}
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
