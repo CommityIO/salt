@@ -25,7 +25,7 @@ export default function Nav() {
             width={480}
             height={65}
             className="w-auto"
-            style={{ height: "clamp(36px, 4.5vw, 52px)", mixBlendMode: "screen" }}
+            style={{ height: "clamp(54px, 6vw, 64px)", mixBlendMode: "screen" }}
             priority
           />
         </Link>
