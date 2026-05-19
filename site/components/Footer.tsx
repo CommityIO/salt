@@ -3,16 +3,16 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal mt-20">
+    <footer className="bg-charcoal">
       <div className="section-inner py-14 flex flex-col md:flex-row justify-between items-start gap-10">
         <div>
           <Image
             src="/images/saltworks-logo.png"
             alt="Saltworks"
-            width={240}
-            height={33}
+            width={480}
+            height={65}
             className="w-auto mb-4"
-            style={{ height: "36px", mixBlendMode: "screen", opacity: 0.75 }}
+            style={{ height: "clamp(22px, 2.5vw, 32px)", mixBlendMode: "screen", opacity: 0.75 }}
           />
           <p className="text-muted text-sm font-light leading-relaxed">
             Enthusiast Branding &amp; Experience Design
