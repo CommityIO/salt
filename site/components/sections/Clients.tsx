@@ -74,13 +74,13 @@ export default function Clients() {
           role="list"
         >
           {visible.map(({ name, logo }) => (
-            <li key={name} className="flex items-center justify-center min-h-[80px] group">
+            <li key={name} className="flex items-center justify-center min-h-[100px] group">
               <Image
                 src={logo}
                 alt={name}
-                width={110}
-                height={70}
-                className="client-logo object-contain w-auto h-auto transition-opacity duration-200"
+                width={240}
+                height={150}
+                className="client-logo w-full h-auto max-h-[120px] object-contain transition-opacity duration-200"
               />
             </li>
           ))}
