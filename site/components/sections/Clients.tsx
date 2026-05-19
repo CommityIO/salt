@@ -87,20 +87,16 @@ export default function Clients() {
         </ul>
 
         {clients.length > INITIAL_COUNT && (
-          <div className="mt-10 flex items-center gap-3">
+          <div className="mt-12 flex items-center gap-6">
+            <div className="flex-1 h-px bg-olive/15" />
             <button
               onClick={() => setExpanded((e) => !e)}
               aria-expanded={expanded}
-              className="flex items-center gap-2 text-muted hover:text-cream transition-colors text-xs uppercase tracking-widest font-normal group"
+              className="text-muted/60 hover:text-olive text-xs uppercase tracking-[0.18em] font-normal transition-colors whitespace-nowrap"
             >
-              <span
-                className="inline-flex items-center justify-center w-6 h-6 border border-muted group-hover:border-cream transition-colors text-base leading-none"
-                aria-hidden="true"
-              >
-                {expanded ? "−" : "+"}
-              </span>
-              <span>{expanded ? "Show Less" : "More Clients"}</span>
+              {expanded ? "Fewer Clients" : `All Clients`}
             </button>
+            <div className="flex-1 h-px bg-olive/15" />
           </div>
         )}
       </div>

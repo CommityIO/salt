@@ -102,11 +102,11 @@ a:hover {
 /* Client logos: white-on-black PNGs — screen blend makes black transparent */
 .client-logo {
   mix-blend-mode: screen;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .group:hover .client-logo {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 /* Typography utilities */

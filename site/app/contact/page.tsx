@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactSection />;
+  return (
+    <div className="flex-1 bg-charcoal">
+      <ContactSection />
+    </div>
+  );
 }

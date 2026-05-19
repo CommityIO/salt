@@ -1,0 +1,226 @@
+<style>
+  :root {
+    --rust: #be6021;
+    --olive: #919655;
+    --cream: #e4e2db;
+    --muted: #a1abac;
+    --charcoal: #292929;
+    --black: #000;
+    --rules: #5f5f5f;
+  }
+
+  body { background: #111; font-family: 'Roboto', sans-serif; color: var(--cream); }
+
+  h2 { color: var(--cream); font-weight: 300; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+
+  .layout-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .layout-col h3 {
+    color: var(--olive);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .section-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-left: 3px solid transparent;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  .section-block .label { color: var(--cream); font-size: 12px; }
+  .section-block .bg-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  /* Current state colors */
+  .bg-black  { background: #000; border-left-color: #333; }
+  .bg-charcoal { background: #292929; border-left-color: #555; }
+  .bg-inherit { background: #111; border-left-color: #444; }
+
+  .bg-black .bg-tag  { background: #333; color: #aaa; }
+  .bg-charcoal .bg-tag { background: #444; color: #ccc; }
+  .bg-inherit .bg-tag { background: #222; color: #888; }
+
+  /* Proposed colors */
+  .pb-black    { background: #000; border-left-color: var(--rust); }
+  .pb-charcoal { background: #292929; border-left-color: var(--olive); }
+  .pb-dark     { background: #1a1a1a; border-left-color: #555; }
+
+  .pb-black .bg-tag    { background: #333; color: var(--rust); }
+  .pb-charcoal .bg-tag { background: #3a3a2a; color: var(--olive); }
+  .pb-dark .bg-tag     { background: #282828; color: #888; }
+
+  .issue-note {
+    font-size: 11px;
+    color: var(--rust);
+    margin-left: 8px;
+  }
+
+  .connector {
+    height: 2px;
+    background: var(--rules);
+    margin: 0;
+  }
+
+  .option-wrapper {
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color .2s;
+    padding: 0;
+  }
+
+  .option-wrapper:hover { border-color: var(--muted); }
+  .option-wrapper.selected { border-color: var(--olive); }
+
+  .option-label {
+    text-align: center;
+    padding: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    background: #1a1a1a;
+    cursor: pointer;
+  }
+
+  .option-wrapper.selected .option-label {
+    background: var(--olive);
+    color: #000;
+  }
+
+  .note-box {
+    background: #1a1a1a;
+    border: 1px solid var(--rules);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .note-box strong { color: var(--cream); }
+</style>
+
+<h2>Section Background Color Scheme</h2>
+<p class="subtitle">Choose the sectional rhythm that best serves legibility and visual clarity across the full homepage.</p>
+
+<div class="layout-compare">
+
+  <!-- Current State -->
+  <div class="layout-col">
+    <h3>Current State — Issues Highlighted</h3>
+
+    <div class="option-wrapper" id="opt-current" data-choice="current" onclick="toggleSelect(this)">
+      <div class="section-block bg-black">
+        <span class="label">Nav (overlaid)</span>
+        <span class="bg-tag">transparent</span>
+      </div>
+      <div class="section-block bg-black">
+        <span class="label">Hero</span>
+        <span class="bg-tag">black</span>
+      </div>
+      <div class="section-block bg-inherit">
+        <span class="label">About <span class="issue-note">⚠ merges w/ hero</span></span>
+        <span class="bg-tag">inherits black</span>
+      </div>
+      <div class="section-block bg-charcoal">
+        <span class="label">Selected Work</span>
+        <span class="bg-tag">charcoal</span>
+      </div>
+      <div class="section-block bg-black">
+        <span class="label">Clients</span>
+        <span class="bg-tag">black</span>
+      </div>
+      <div class="section-block bg-inherit">
+        <span class="label">What We Do <span class="issue-note">⚠ merges w/ clients</span></span>
+        <span class="bg-tag">inherits black</span>
+      </div>
+      <div class="section-block bg-inherit">
+        <span class="label">The Team <span class="issue-note">⚠ merges w/ above</span></span>
+        <span class="bg-tag">inherits black</span>
+      </div>
+      <div class="section-block bg-charcoal">
+        <span class="label">Contact</span>
+        <span class="bg-tag">charcoal</span>
+      </div>
+      <div style="height:20px;background:#000;border-left:3px solid #c00;display:flex;align-items:center;padding:0 14px;">
+        <span style="font-size:10px;color:#c00;text-transform:uppercase;letter-spacing:.1em;">⚠ black bar (mt-20 gap)</span>
+      </div>
+      <div class="section-block bg-charcoal">
+        <span class="label">Footer</span>
+        <span class="bg-tag">charcoal</span>
+      </div>
+      <div class="option-label">Current (not recommended)</div>
+    </div>
+  </div>
+
+  <!-- Proposed -->
+  <div class="layout-col">
+    <h3>Proposed — Alternating Rhythm</h3>
+
+    <div class="option-wrapper" id="opt-proposed" data-choice="proposed" onclick="toggleSelect(this)">
+      <div class="section-block pb-black">
+        <span class="label">Nav (overlaid)</span>
+        <span class="bg-tag">transparent</span>
+      </div>
+      <div class="section-block pb-black">
+        <span class="label">Hero</span>
+        <span class="bg-tag">black</span>
+      </div>
+      <div class="section-block pb-dark">
+        <span class="label">About</span>
+        <span class="bg-tag">#1a1a1a (near-black)</span>
+      </div>
+      <div class="section-block pb-charcoal">
+        <span class="label">Selected Work</span>
+        <span class="bg-tag">charcoal #292929</span>
+      </div>
+      <div class="section-block pb-black">
+        <span class="label">Clients</span>
+        <span class="bg-tag">black</span>
+      </div>
+      <div class="section-block pb-charcoal">
+        <span class="label">What We Do</span>
+        <span class="bg-tag">charcoal #292929</span>
+      </div>
+      <div class="section-block pb-black">
+        <span class="label">The Team</span>
+        <span class="bg-tag">black</span>
+      </div>
+      <div class="section-block pb-charcoal">
+        <span class="label">Contact</span>
+        <span class="bg-tag">charcoal #292929</span>
+      </div>
+      <div style="height:4px;background:#292929;border-left:3px solid var(--olive);"></div>
+      <div class="section-block pb-charcoal">
+        <span class="label">Footer (mt-20 removed)</span>
+        <span class="bg-tag">charcoal #292929</span>
+      </div>
+      <div class="option-label">Proposed (recommended)</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note-box">
+  <strong>Why this rhythm works:</strong> Black and charcoal alternate so each section reads as visually distinct without breaking the dark, unified Saltworks aesthetic. The near-black <code>#1a1a1a</code> separates About from the Hero without being jarring. The <strong>black bar gap</strong> between Contact and Footer is eliminated by removing <code>mt-20</code> from the Footer component. Client logos (white PNGs with <code>mix-blend-mode: screen</code>) remain legible on both black and charcoal.
+</div>

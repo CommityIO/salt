@@ -12,7 +12,7 @@ export default function Footer() {
             width={480}
             height={65}
             className="w-auto mb-4"
-            style={{ height: "clamp(22px, 2.5vw, 32px)", mixBlendMode: "screen", opacity: 0.75 }}
+            style={{ height: "clamp(30px, 4vw, 46px)", mixBlendMode: "screen", opacity: 0.9 }}
           />
           <p className="text-muted text-sm font-light leading-relaxed">
             Enthusiast Branding &amp; Experience Design
