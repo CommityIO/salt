@@ -179,11 +179,11 @@ export default function Hero() {
                 onClick={() => { goTo(i); startAutoplay(); }}
                 className="relative flex-1 py-4 text-center transition-colors overflow-hidden"
                 style={{
-                  fontSize: "11px",
-                  letterSpacing: "0.12em",
+                  fontSize: "13px",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   fontWeight: 400,
-                  color: i === current ? "#be6021" : "#a1abac",
+                  color: i === current ? "#be6021" : "#e4e2db",
                   borderTop: `2px solid ${i === current ? "#be6021" : "transparent"}`,
                 }}
               >
