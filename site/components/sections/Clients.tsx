@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 const clients = [
@@ -51,9 +54,14 @@ const clients = [
   { name: "Wells Fargo",                logo: "/images/clients/clients_48.png" },
 ];
 
+const INITIAL_COUNT = 18;
+
 export default function Clients() {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? clients : clients.slice(0, INITIAL_COUNT);
+
   return (
-    <section className="py-16 md:py-20 bg-charcoal" id="clients" aria-labelledby="clients-heading">
+    <section className="py-16 md:py-20 bg-black" id="clients" aria-labelledby="clients-heading">
       <div className="section-inner">
         <p className="section-label mb-2">Clients</p>
         <p className="text-muted text-sm font-light mb-12">
@@ -62,22 +70,39 @@ export default function Clients() {
         <h2 id="clients-heading" className="sr-only">Our Clients</h2>
 
         <ul
-          className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-6 gap-x-8 gap-y-10"
+          className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-6 gap-y-8"
           role="list"
         >
-          {clients.map(({ name, logo }) => (
-            <li key={name} className="flex items-center justify-center min-h-[96px] group">
+          {visible.map(({ name, logo }) => (
+            <li key={name} className="flex items-center justify-center min-h-[80px] group">
               <Image
                 src={logo}
                 alt={name}
-                width={150}
-                height={150}
-                className="client-logo object-contain w-auto transition-opacity duration-200"
-                style={{ maxHeight: "150px" }}
+                width={110}
+                height={70}
+                className="client-logo object-contain w-auto h-auto transition-opacity duration-200"
               />
             </li>
           ))}
         </ul>
+
+        {clients.length > INITIAL_COUNT && (
+          <div className="mt-10 flex items-center gap-3">
+            <button
+              onClick={() => setExpanded((e) => !e)}
+              aria-expanded={expanded}
+              className="flex items-center gap-2 text-muted hover:text-cream transition-colors text-xs uppercase tracking-widest font-normal group"
+            >
+              <span
+                className="inline-flex items-center justify-center w-6 h-6 border border-muted group-hover:border-cream transition-colors text-base leading-none"
+                aria-hidden="true"
+              >
+                {expanded ? "−" : "+"}
+              </span>
+              <span>{expanded ? "Show Less" : "More Clients"}</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
