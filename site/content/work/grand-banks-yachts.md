@@ -6,7 +6,7 @@ slug: "grand-banks-yachts"
 featured: true
 featuredOrder: 2
 summary: "A yacht maker planned a costly hull redesign. Customer research revealed the real issue was below deck — and far cheaper to fix."
-result: "Avoided a costly misstep. Stronger sales, more efficient capital."
+result: "Avoided a multi-million dollar misstep. Stronger sales, more efficient capital."
 heroImage: "/images/work/grand-banks-hero.jpg"
 thumbnailImage: "/images/work/grand-banks-thumb.jpg"
 metaDescription: "Saltworks helped Grand Banks Yachts avoid a multi-million dollar hull redesign by uncovering the real barrier to purchase: an outdated onboard experience."
