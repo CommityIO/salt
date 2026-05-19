@@ -39,7 +39,7 @@ const team = [
   {
     name: "Drake Pusey",
     title: "Brand Ecosystems",
-    image: "/images/team/drake-pusey.jpg",
+    image: "/images/team/drake-pusey.png",
     bio: "Drake enables brands to achieve sustainable differentiation by proactively empowering customers. By developing strategic alignment between brand, customer experience, and product development, he can turn what is often a zero-sum game into a win-win situation.",
     enthusiast: "Bushido, exploration, and wildlife enthusiast",
     email: "drake@saltworksinc.com",
@@ -47,7 +47,7 @@ const team = [
   {
     name: "Katie Karatzas",
     title: "Brand Experience",
-    image: "/images/team/katie-karatzas.jpg",
+    image: "/images/team/katie-karatzas.png",
     bio: "Katie has a strong foundation anchored in ethnographic research and product innovation. Her superpowers include the ability to translate data from qualitative research into effective tools for design and sift through complex information to quickly present a clear and concise point of view.",
     enthusiast: "Gardening, cooking and painting enthusiast",
     email: "katie@saltworksinc.com",
@@ -74,7 +74,7 @@ export default function TheTeam() {
   const activeMember = team.find((m) => m.name === active) ?? null;
 
   return (
-    <section className="py-16 md:py-24" id="team" aria-labelledby="team-heading">
+    <section className="py-16 md:py-24 bg-black" id="team" aria-labelledby="team-heading">
       <div className="section-inner">
         <p className="section-label mb-6">The Team</p>
         <h2 id="team-heading" className="text-olive text-2xl font-light mb-12">
@@ -100,16 +100,13 @@ export default function TheTeam() {
                 }
               }}
             >
-              {/* Photo */}
-              <div
-                className="relative w-full aspect-square mb-3 overflow-hidden"
-                style={{ backgroundColor: "#1a1a1a" }}
-              >
+              {/* Photo — transparent circle PNG, no background fill */}
+              <div className="relative w-full aspect-square mb-3">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-all duration-300"
+                  className="object-contain transition-all duration-300"
                   style={{
                     filter: active === member.name ? "grayscale(0%)" : "grayscale(100%)",
                     opacity: active === member.name ? 1 : 0.75,
