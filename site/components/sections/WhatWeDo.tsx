@@ -75,7 +75,7 @@ const phases = [
 
 export default function WhatWeDo() {
   return (
-    <section className="py-16 md:py-24" id="what-we-do" aria-labelledby="services-heading">
+    <section className="py-16 md:py-24 bg-charcoal" id="what-we-do" aria-labelledby="services-heading">
       <div className="section-inner">
         <p className="section-label mb-6">What We Do</p>
         <h2 id="services-heading" className="text-cream text-3xl md:text-4xl font-light leading-snug mb-6 max-w-2xl">

@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="py-16 md:py-24" aria-labelledby="about-heading">
+    <section className="py-16 md:py-24 bg-[#1a1a1a]" aria-labelledby="about-heading">
       <div className="section-inner">
         <p className="section-label mb-6">About</p>
         <h2 id="about-heading" className="sr-only">About Saltworks</h2>
