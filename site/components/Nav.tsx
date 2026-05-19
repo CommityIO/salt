@@ -22,10 +22,10 @@ export default function Nav() {
           <Image
             src="/images/saltworks-logo.png"
             alt="Saltworks"
-            width={500}
-            height={500}
+            width={480}
+            height={65}
             className="w-auto"
-            // style={{ height: "clamp(28px, 3vw, 42px)", mixBlendMode: "screen" }}
+            style={{ height: "clamp(24px, 3vw, 38px)", mixBlendMode: "screen" }}
             priority
           />
         </Link>
